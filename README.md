@@ -20,3 +20,8 @@ npm run build
 ```
 npm run lint
 ```
+### Login credentials
+```
+username: admin
+password: password
+```
