@@ -35,14 +35,14 @@
 </style>
 
 <script>
-	
-	export default {
-		props: ['loggedIn'],
-		methods: {
-			logout() {
-				sessionStorage.clear();
-				this.$emit("logout");
-			}
-		}
-	};
+
+export default {
+  props: ['loggedIn'],
+  methods: {
+    logout() {
+      sessionStorage.clear();
+      this.$emit('logout');
+    },
+  },
+};
 </script>

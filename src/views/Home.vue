@@ -23,17 +23,17 @@ export default {
   data() {
     return {
       loggedIn: sessionStorage.getItem('authenticated'),
-    }
+    };
   },
 
   methods: {
-    login(){
+    login() {
       this.loggedIn = true;
     },
 
-    logout(){
+    logout() {
       this.loggedIn = false;
-    }
-  }
+    },
+  },
 };
 </script>

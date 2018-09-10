@@ -1,0 +1,35 @@
+Tipper can login/logout and is shown relevant warning messages on incorrect/missing entry
+PASS
+> Username: "admin", password: "password"
+
+Tipper sees a gif selection screen when they login and are able to select one of the listed gifs or use the search bar to search based on keyword
+PASS
+
+Gif selection is a required step before moving to the next screen
+FAIL
+> GIF selection is not required before moving to the next screen. Users can bypass by clicking "Continue" button
+
+The tipper is able to search for keywords by pressing enter on the search box
+PASS
+
+If the search term returns no results, some other recommended gifs are presented
+PASS
+
+Tipper can click on continue once they have selected a gif and move onto the next screen
+PASS
+
+Tipper can enter a numeric tip amount in the textbox
+FAIL
+> Users can enter a string or negative value
+
+The Tipper can preview their tip on the next screen when they press the Donate button
+FAIL
+> Not intutive, not a preview as it is asssumed the transaction has passed
+
+The Tipper is brought back to the gif selection screen once they press the Do it again.
+PASS
+
+List of Bugs
+1. Login screen has "admin" as a hint for username. Suggest this greyed out text to be "username" instead
+2. Search for a gif - Users must click on the search button to inorder to work. Suggest users can also press "enter" key on keyboard to search
+3. Or select a gif - Only 10 gifs are to be previewed, suggest to have a slider to preview more gifs

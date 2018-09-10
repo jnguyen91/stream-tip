@@ -6,7 +6,7 @@
 			<a href="javascript:;" @click="search()" class="search-btn"><i class="fas fa-search"></i></a>
 			<hr>
 			<h1>Or select a gif</h1>
-			<div class="gif" :class="{'selected': gif === selectedGif}" v-for="gif in gifs"> 
+			<div class="gif" :class="{'selected': gif === selectedGif}" v-for="gif in gifs">
 				<video :src="gif.mobileUrl" width="120px" height="120px" @click="selectGif(gif)" autoplay :muted="true" loop>
 				</video>
 			</div>
@@ -45,7 +45,7 @@
 	.margin-top--60px {
 		margin-top: 60px;
 	}
-	
+
 	.margin-top--20px {
 		margin-top: 20px;
 	}
@@ -95,58 +95,58 @@
 import axios from 'axios';
 
 export default {
-	data() {
-		return {
-			gifs: [],
-			currentStep: 1,
-			selectedGif: null,
-			tipAmount: null,
-			searchGif: null,
-		}
-	},
+  data() {
+    return {
+      gifs: [],
+      currentStep: 1,
+      selectedGif: null,
+      tipAmount: null,
+      searchGif: null,
+    };
+  },
 
-	mounted() {		
-		this.getTrendingGifs();
-	},
+  mounted() {
+    this.getTrendingGifs();
+  },
 
-	methods: {
-		selectGif(gif) {
-			this.selectedGif = gif;
-		},
+  methods: {
+    selectGif(gif) {
+      this.selectedGif = gif;
+    },
 
-		nextStep() {
-			this.currentStep = this.currentStep + 1;
-		},
+    nextStep() {
+      this.currentStep = this.currentStep + 1;
+    },
 
-		previousStep() {
-			this.currentStep = this.currentStep - 1;
-		},
+    previousStep() {
+      this.currentStep = this.currentStep - 1;
+    },
 
-		submit() {
-			this.currentStep = 3;
-		},
+    submit() {
+      this.currentStep = 3;
+    },
 
-		firstStep() {
-			this.currentStep = 1;
-		},
+    firstStep() {
+      this.currentStep = 1;
+    },
 
-		getTrendingGifs() {
-			axios.get('https://api.gfycat.com/v1/gfycats/trending')
-			.then((res) => {
-				this.gifs = res.data.gfycats;
-			});
-		},
+    getTrendingGifs() {
+      axios.get('https://api.gfycat.com/v1/gfycats/trending')
+        .then((res) => {
+          this.gifs = res.data.gfycats;
+        });
+    },
 
-		search(){
-			if (this.searchGif !== "") {
-				axios.get(`https://api.gfycat.com/v1/gfycats/search?search_text=${this.searchGif}`)
-				.then((res) => {
-					this.gifs = res.data.gfycats;
-				});
-			} else {
-				this.getTrendingGifs();
-			}
-		}
-	},
+    search() {
+      if (this.searchGif !== '') {
+        axios.get(`https://api.gfycat.com/v1/gfycats/search?search_text=${this.searchGif}`)
+          .then((res) => {
+            this.gifs = res.data.gfycats;
+          });
+      } else {
+        this.getTrendingGifs();
+      }
+    },
+  },
 };
 </script>

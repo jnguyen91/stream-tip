@@ -48,20 +48,20 @@
 <script>
 export default {
   name: 'Login',
-  
+
   data() {
     return {
       username: '',
       password: '',
       showError: false,
-    }
+    };
   },
 
   methods: {
     login() {
-      if (this.username === "admin" && this.password === "password") {
+      if (this.username === 'admin' && this.password === 'password') {
         sessionStorage.setItem('authenticated', 'true');
-        this.$emit("login");
+        this.$emit('login');
       } else {
         this.password = '';
         this.showError = true;
